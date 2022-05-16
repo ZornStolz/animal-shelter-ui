@@ -6,7 +6,9 @@
     "dev": "next dev",
     "test:component": "jest -c test/component/jest.config.component.js",
     "build": "next build",
-    "start": "next start -p $PORT"
+    "start": "next start -p $PORT",
+    "test:contract" : "jest -c test/contract/jest.contract.config.js",
+    "publish:contract": "node ./test/contract/config/publish.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -22,6 +24,7 @@
     "swr": "^0.4.2"
   },
   "devDependencies": {
+    "@pact-foundation/pact": "^9.17.3",
     "@testing-library/dom": "^7.30.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
