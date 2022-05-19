@@ -3,30 +3,39 @@ import { Matchers } from "@pact-foundation/pact";
 import { AnimalController } from "../../../controllers";
 
 describe("Animal Service", () => {
-  describe("When a request to list all animals is made", () => {
+  describe("When a request to post an animal is made", () => {
     beforeAll(async () => {
       await provider.setup();
       await provider.addInteraction({
-        uponReceiving: "a request to list all animals",
-        state: "has animals",
+        uponReceiving: "a request to post an animal",
+        state: "add an animal",
         withRequest: {
-          method: "GET",
+          method: "POST",
           path: "/animals",
         },
         willRespondWith: {
           status: 200,
           body: Matchers.eachLike({
+            id: Matchers.like(69),
             name: Matchers.like("manchas"),
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
             vaccinated: Matchers.boolean(true),
+            vaccines: ["Leptospirosis", "Parvovirus"],
           }),
         },
       });
     });
 
     test("should return the correct data", async () => {
-      const response = await AnimalController.list();
+      const animal = {
+        name: "manchas",
+        breed: "Bengali",
+        gender: "Female",
+        vaccinated: true,
+        vaccines: ["Leptospirosis", "Parvovirus"],
+      };
+      const response = await AnimalController.register(animal);
 
       expect(response.data).toMatchSnapshot();
       await provider.verify();

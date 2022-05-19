@@ -3,15 +3,15 @@ import { Matchers } from "@pact-foundation/pact";
 import { AnimalController } from "../../../controllers";
 
 describe("Animal Service", () => {
-  describe("When a request to list all animals is made", () => {
+  describe("When a request to get an especific animal is made", () => {
     beforeAll(async () => {
       await provider.setup();
       await provider.addInteraction({
-        uponReceiving: "a request to list all animals",
-        state: "has animals",
+        uponReceiving: "a request to find an animal",
+        state: "is there the animal",
         withRequest: {
           method: "GET",
-          path: "/animals",
+          path: "/animals/manchas",
         },
         willRespondWith: {
           status: 200,
@@ -20,13 +20,14 @@ describe("Animal Service", () => {
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
             vaccinated: Matchers.boolean(true),
+            vaccines: ["Leptospirosis", "Parvovirus"],
           }),
         },
       });
     });
 
     test("should return the correct data", async () => {
-      const response = await AnimalController.list();
+      const response = await AnimalController.getAnimal("manchas");
 
       expect(response.data).toMatchSnapshot();
       await provider.verify();
