@@ -24,7 +24,7 @@ Object {
       "forcedJSONParsing": true,
       "silentJSONParsing": true,
     },
-    "url": "animals/manchas",
+    "url": "animals/Manchas",
     "validateStatus": [Function],
     "xsrfCookieName": "XSRF-TOKEN",
     "xsrfHeaderName": "X-XSRF-TOKEN",
@@ -42,22 +42,7 @@ Array [
   Object {
     "breed": "Bengali",
     "gender": "Female",
-    "name": "manchas",
-    "vaccinated": true,
-    "vaccines": Array [
-      "Leptospirosis",
-      "Parvovirus",
-    ],
-  },
-]
-`;
-
-exports[`Animal Service When a request to get an especific animal is made should return the correct data 1`] = `
-Array [
-  Object {
-    "breed": "Bengali",
-    "gender": "Female",
-    "name": "manchas",
+    "name": "Manchas",
     "vaccinated": true,
     "vaccines": Array [
       "Leptospirosis",
@@ -72,18 +57,7 @@ Array [
   Object {
     "breed": "Bengali",
     "gender": "Female",
-    "name": "manchas",
-    "vaccinated": true,
-  },
-]
-`;
-
-exports[`Animal Service When a request to list all animals is made should return the correct data 1`] = `
-Array [
-  Object {
-    "breed": "Bengali",
-    "gender": "Female",
-    "name": "manchas",
+    "name": "Manchas",
     "vaccinated": true,
   },
 ]
@@ -95,7 +69,7 @@ Array [
     "breed": "Bengali",
     "gender": "Female",
     "id": 69,
-    "name": "manchas",
+    "name": "Manchas",
     "vaccinated": true,
     "vaccines": Array [
       "Leptospirosis",
@@ -111,7 +85,7 @@ Array [
     "breed": "Bengali",
     "gender": "Female",
     "id": 69,
-    "name": "manchas",
+    "name": "Manchas",
     "vaccinated": true,
     "vaccines": Array [
       "Leptospirosis",

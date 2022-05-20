@@ -3,9 +3,12 @@ import { Matchers } from "@pact-foundation/pact";
 import { AnimalController } from "../../../controllers";
 
 describe("Animal Service", () => {
+  beforeAll(async () => {
+    await provider.setup();
+  });
+
   describe("When a request to list all animals is made", () => {
     beforeAll(async () => {
-      await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to list all animals",
         state: "has animals",
@@ -16,7 +19,7 @@ describe("Animal Service", () => {
         willRespondWith: {
           status: 200,
           body: Matchers.eachLike({
-            name: Matchers.like("manchas"),
+            name: Matchers.like("Manchas"),
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
             vaccinated: Matchers.boolean(true),
@@ -31,24 +34,21 @@ describe("Animal Service", () => {
       expect(response.data).toMatchSnapshot();
       await provider.verify();
     });
-
-    afterAll(() => provider.finalize());
   });
 
   describe("When a request to get an especific animal is made", () => {
     beforeAll(async () => {
-      await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to find an animal",
         state: "get animal by name",
         withRequest: {
           method: "GET",
-          path: "/animals/manchas",
+          path: "/animals/Manchas",
         },
         willRespondWith: {
           status: 200,
           body: Matchers.eachLike({
-            name: Matchers.like("manchas"),
+            name: Matchers.like("Manchas"),
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
             vaccinated: Matchers.boolean(true),
@@ -59,18 +59,15 @@ describe("Animal Service", () => {
     });
 
     test("The Sought animal was found and has the correct data", async () => {
-      const response = await AnimalController.getAnimal("manchas");
+      const response = await AnimalController.getAnimal("Manchas");
 
       expect(response.data).toMatchSnapshot();
       await provider.verify();
     });
-
-    afterAll(() => provider.finalize());
   });
 
   describe("When a request to post an animal is made", () => {
     beforeAll(async () => {
-      await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to post an animal",
         state: "add animal",
@@ -82,7 +79,7 @@ describe("Animal Service", () => {
           status: 201,
           body: Matchers.eachLike({
             id: Matchers.like(69),
-            name: Matchers.like("manchas"),
+            name: Matchers.like("Manchas"),
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
             vaccinated: Matchers.boolean(true),
@@ -94,7 +91,7 @@ describe("Animal Service", () => {
 
     test("The animal was created and has the correct data", async () => {
       const animal = {
-        name: "manchas",
+        name: "Manchas",
         breed: "Bengali",
         gender: "Female",
         vaccinated: true,
@@ -105,25 +102,22 @@ describe("Animal Service", () => {
       expect(response.data).toMatchSnapshot();
       await provider.verify();
     });
-
-    afterAll(() => provider.finalize());
   });
 
   describe("When a request to update an animal is made", () => {
     beforeAll(async () => {
-      await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to update an animal",
         state: "update animal",
         withRequest: {
           method: "PUT",
-          path: "/animals/manchas",
+          path: "/animals/Manchas",
         },
         willRespondWith: {
           status: 200,
           body: Matchers.eachLike({
             id: Matchers.like(69),
-            name: Matchers.like("manchas"),
+            name: Matchers.like("Manchas"),
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
             vaccinated: Matchers.boolean(true),
@@ -134,24 +128,21 @@ describe("Animal Service", () => {
     });
 
     test("The animal was updated and has the correct data", async () => {
-      const response = await AnimalController.updateAnimal("manchas");
+      const response = await AnimalController.updateAnimal("Manchas");
 
       expect(response.data).toMatchSnapshot();
       await provider.verify();
     });
-
-    afterAll(() => provider.finalize());
   });
 
   describe("When a request to delete an animal is made", () => {
     beforeAll(async () => {
-      await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to delete an animal",
         state: "delete animal",
         withRequest: {
           method: "DELETE",
-          path: "/animals/manchas",
+          path: "/animals/Manchas",
         },
         willRespondWith: {
           status: 204,
@@ -160,11 +151,11 @@ describe("Animal Service", () => {
     });
 
     test("The animal was deleted and the status is 204", async () => {
-      const response = await AnimalController.delete("manchas");
+      const response = await AnimalController.delete("Manchas");
       expect(response).toMatchSnapshot();
       await provider.verify();
     });
-
-    afterAll(() => provider.finalize());
   });
+
+  afterAll(() => provider.finalize());
 });
