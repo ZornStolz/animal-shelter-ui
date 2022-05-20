@@ -38,18 +38,16 @@ Object {
 `;
 
 exports[`Animal Service When a request to get an especific animal is made The Sought animal was found and has the correct data 1`] = `
-Array [
-  Object {
-    "breed": "Bengali",
-    "gender": "Female",
-    "name": "Manchas",
-    "vaccinated": true,
-    "vaccines": Array [
-      "Leptospirosis",
-      "Parvovirus",
-    ],
-  },
-]
+Object {
+  "breed": "Bengali",
+  "gender": "Female",
+  "name": "Manchas",
+  "vaccinated": true,
+  "vaccines": Array [
+    "Leptospirosis",
+    "Parvovirus",
+  ],
+}
 `;
 
 exports[`Animal Service When a request to list all animals is made should return a list with animals 1`] = `
@@ -64,33 +62,27 @@ Array [
 `;
 
 exports[`Animal Service When a request to post an animal is made The animal was created and has the correct data 1`] = `
-Array [
-  Object {
-    "breed": "Bengali",
-    "gender": "Female",
-    "id": 69,
-    "name": "Manchas",
-    "vaccinated": true,
-    "vaccines": Array [
-      "Leptospirosis",
-      "Parvovirus",
-    ],
-  },
-]
+Object {
+  "breed": "Bengali",
+  "gender": "Female",
+  "name": "Manchas",
+  "vaccinated": true,
+  "vaccines": Array [
+    "Leptospirosis",
+    "Parvovirus",
+  ],
+}
 `;
 
 exports[`Animal Service When a request to update an animal is made The animal was updated and has the correct data 1`] = `
-Array [
-  Object {
-    "breed": "Bengali",
-    "gender": "Female",
-    "id": 69,
-    "name": "Manchas",
-    "vaccinated": true,
-    "vaccines": Array [
-      "Leptospirosis",
-      "Parvovirus",
-    ],
-  },
-]
+Object {
+  "breed": "Bengali",
+  "gender": "Female",
+  "name": "Manchas",
+  "vaccinated": true,
+  "vaccines": Array [
+    "Leptospirosis",
+    "Parvovirus",
+  ],
+}
 `;

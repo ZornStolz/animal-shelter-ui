@@ -47,7 +47,7 @@ describe("Animal Service", () => {
         },
         willRespondWith: {
           status: 200,
-          body: Matchers.eachLike({
+          body: Matchers.like({
             name: Matchers.like("Manchas"),
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
@@ -77,8 +77,7 @@ describe("Animal Service", () => {
         },
         willRespondWith: {
           status: 201,
-          body: Matchers.eachLike({
-            id: Matchers.like(69),
+          body: Matchers.like({
             name: Matchers.like("Manchas"),
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
@@ -115,8 +114,7 @@ describe("Animal Service", () => {
         },
         willRespondWith: {
           status: 200,
-          body: Matchers.eachLike({
-            id: Matchers.like(69),
+          body: Matchers.like({
             name: Matchers.like("Manchas"),
             breed: Matchers.like("Bengali"),
             gender: Matchers.like("Female"),
