@@ -8,13 +8,13 @@ describe("Animal Service", () => {
       await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to post an animal",
-        state: "add an animal",
+        state: "add animal",
         withRequest: {
           method: "POST",
           path: "/animals",
         },
         willRespondWith: {
-          status: 200,
+          status: 201,
           body: Matchers.eachLike({
             id: Matchers.like(69),
             name: Matchers.like("manchas"),

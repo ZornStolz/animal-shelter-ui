@@ -8,7 +8,7 @@ describe("Animal Service", () => {
       await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to update an animal",
-        state: "update an animal",
+        state: "update animal",
         withRequest: {
           method: "PUT",
           path: "/animals/manchas",

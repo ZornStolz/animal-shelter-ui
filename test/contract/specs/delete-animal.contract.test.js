@@ -8,29 +8,20 @@ describe("Animal Service", () => {
       await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to delete an animal",
-        state: "delete an animal",
+        state: "delete animal",
         withRequest: {
           method: "DELETE",
           path: "/animals/manchas",
         },
         willRespondWith: {
-          status: 200,
-          body: {
-            id: Matchers.like(69),
-            name: Matchers.like("manchas"),
-            breed: Matchers.like("Bengali"),
-            gender: Matchers.like("Female"),
-            vaccinated: Matchers.boolean(true),
-            vaccines: ["lupus", "rabia"],
-          },
+          status: 204,
         },
       });
     });
 
     test("should return the correct data", async () => {
       const response = await AnimalController.delete("manchas");
-
-      expect(response.data).toMatchSnapshot();
+      expect(response).toMatchSnapshot();
       await provider.verify();
     });
 

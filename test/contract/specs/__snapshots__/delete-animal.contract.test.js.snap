@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Animal Service When a request to delete an animal is made should return the correct data 1`] = `
+Object {
+  "config": Object {
+    "adapter": [Function],
+    "baseURL": "http://localhost:8080",
+    "data": undefined,
+    "headers": Object {
+      "Accept": "application/json, text/plain, */*",
+    },
+    "maxBodyLength": -1,
+    "maxContentLength": -1,
+    "method": "delete",
+    "timeout": 0,
+    "transformRequest": Array [
+      [Function],
+    ],
+    "transformResponse": Array [
+      [Function],
+    ],
+    "transitional": Object {
+      "clarifyTimeoutError": false,
+      "forcedJSONParsing": true,
+      "silentJSONParsing": true,
+    },
+    "url": "animals/manchas",
+    "validateStatus": [Function],
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+  },
+  "data": "",
+  "headers": Object {},
+  "request": XMLHttpRequest {},
+  "status": 204,
+  "statusText": "No Content ",
+}
+`;

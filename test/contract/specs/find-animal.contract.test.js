@@ -8,7 +8,7 @@ describe("Animal Service", () => {
       await provider.setup();
       await provider.addInteraction({
         uponReceiving: "a request to find an animal",
-        state: "is there the animal",
+        state: "get animal by name",
         withRequest: {
           method: "GET",
           path: "/animals/manchas",
